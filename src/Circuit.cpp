@@ -248,15 +248,15 @@ void Circuit::annealingPlacement() {
                 costs.push_back(newCost); 
             }
             counts++;
-            if (counts % 100 == 0) {
-                cout << "Iteration " << counts << ", current T " << temp << ", cost " << getCost() << endl;
-            }
+        //    if (counts % 100 == 0) {
+        //        cout << "Iteration " << counts << ", current T " << temp << ", cost " << getCost() << endl;
+        //    }
         }
         double devCost = sqrt(variance(costs));
-        if (devCost < 0.001) {
-            cout << "Iteration " << counts << ", placement finished! Final cost: " << getCost() << endl;
+        if (devCost < 0.01) {
+            cout << "Iteration " << counts << ", cost converged, placement finished! Final cost: " << getCost() << endl;
             break;
-        } else if (counts > 10000000) {
+        } else if (counts > 999999999) {
             cout << "Iteration " << counts << ", optimal placement couldn't be found!" << endl;
             break;
         }
