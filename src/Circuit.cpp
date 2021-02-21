@@ -264,7 +264,7 @@ void Circuit::annealingPlacement() {
             cout << "Iteration " << counts << ", current T " << temp << ", deviation of costs " << devCost << ", cost " << getCost() << endl;
         }
         // Update tempture
-        if (temp < 0.001) temp = 0; // use greedy
+        if (temp < 0.1) temp = 0; // use greedy
         else{
             temp = temp * exp(-0.7*temp/devCost);
         }
